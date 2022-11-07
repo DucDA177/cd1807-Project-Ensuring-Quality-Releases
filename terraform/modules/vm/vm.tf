@@ -26,7 +26,7 @@ resource "azurerm_linux_virtual_machine" "test" {
   admin_password        = var.admin_password
   disable_password_authentication = false
   source_image_id       = data.azurerm_image.vm_ubuntu_1804.id
-  network_interface_ids = [azurerm_network_interface.myNIC.id]
+  network_interface_ids = [azurerm_network_interface.test.id]
  
   os_disk {
     caching              = "ReadWrite"
