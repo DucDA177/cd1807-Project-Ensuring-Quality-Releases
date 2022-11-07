@@ -201,7 +201,7 @@ stages:
   - deployment: VMDeploy
     displayName: Selenium Tests
     environment:
-      name: 'vm_ubuntu_1804'
+      name: 'TEST'
       resourceType: VirtualMachine
     strategy:
       runOnce:
