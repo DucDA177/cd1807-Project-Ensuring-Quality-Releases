@@ -201,8 +201,9 @@ stages:
   - deployment: VMDeploy
     displayName: Selenium Tests
     environment:
-      name: 'TEST'
+      name: 'test'
       resourceType: VirtualMachine
+      tags: selenium
     strategy:
       runOnce:
         deploy:
