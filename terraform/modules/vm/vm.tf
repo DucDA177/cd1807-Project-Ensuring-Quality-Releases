@@ -25,7 +25,7 @@ resource "azurerm_linux_virtual_machine" "test" {
   admin_username        = var.admin_username
   admin_password        = var.admin_password
   disable_password_authentication = false
-  source_image_id       = data.azurerm_image.vm_ubuntu_1804.id
+  source_image_id       = "/subscriptions/f86c8aef-eed2-4250-a0a6-3dd45ecd4082/resourceGroups/Azuredevops/providers/Microsoft.Compute/images/vm_ubuntu_1804"
   network_interface_ids = [azurerm_network_interface.test.id]
  
   os_disk {
