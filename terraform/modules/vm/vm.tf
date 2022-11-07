@@ -1,4 +1,4 @@
-resource "azurerm_network_interface" "test" {
+resource "azurerm_network_interface" "myNIC" {
   name                = "ducda-NIC"
   location            = var.location
   resource_group_name = var.resource_group
@@ -17,7 +17,7 @@ data "azurerm_image" "vm_ubuntu_1804" {
   resource_group_name = var.resource_group
 }
 
-resource "azurerm_linux_virtual_machine" "test" {
+resource "azurerm_linux_virtual_machine" "myVM" {
   name                  = var.name
   location              = var.location
   resource_group_name   = var.resource_group
@@ -26,7 +26,7 @@ resource "azurerm_linux_virtual_machine" "test" {
   admin_password        = var.admin_password
   disable_password_authentication = false
   source_image_id       = data.azurerm_image.vm_ubuntu_1804.id
-  network_interface_ids = [azurerm_network_interface.test.id]
+  network_interface_ids = [azurerm_network_interface.myNIC.id]
  
   os_disk {
     caching              = "ReadWrite"
