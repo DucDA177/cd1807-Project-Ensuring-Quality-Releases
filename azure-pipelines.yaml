@@ -219,10 +219,15 @@ stages:
                 #! /bin/bash
                 export PATH=$PATH:/usr/lib/chromium-browser/
                 unzip -o $(Build.BuildId)-uitests.zip
-                touch $(Build.BuildId)-selenium-out.log
-                python3 automatedtesting/selenium/login.py > $(Build.BuildId)-selenium-out.log
-                cat $(Build.BuildId)-selenium-out.log
-                sudo cp $(Build.BuildId)-selenium-out.log /var/log/selenium/$(Build.BuildId)-selenium-out.log
-                sudo cp $(Build.BuildId)-selenium-out.log /var/log
+                sudo mkdir -p /var/log/selenium
+                sudo chmod 664 /var/log/selenium
+                  
+                sudo python3 -u login.py 2>&1 | sudo tee -a /var/log/selenium/selenium-test.log
+                # copy selenium log file to $(System.DefaultWorkingDirectory)/log/selenium/
+                cd $(System.DefaultWorkingDirectory)
+                mkdir -p log/selenium
+                pwd
+                sudo cp /var/log/selenium/selenium-test.log log/selenium/selenium-test.log
+                ls -la
               workingDirectory: $(Pipeline.Workspace)/drop-uitests
                 
