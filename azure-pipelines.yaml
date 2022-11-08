@@ -217,8 +217,7 @@ stages:
               targetType: 'inline'
               script: |
                 #! /bin/bash
-                export PATH=$PATH:/usr/lib/chromium-browser/
-
+              
                 sudo apt-get upgrade -y
                 sudo apt-get install python3-pip -y
                 sudo apt-get install unzip -y
@@ -240,6 +239,8 @@ stages:
                 sudo chmod +x /usr/bin/chromedriver
                 chromium-browser -version
                 chromedriver --version
+
+                export PATH=$PATH:/usr/lib/chromedriver/
 
                 unzip -o $(Build.BuildId)-uitests.zip
                 sudo python3 login.py > $(Build.BuildId)-selenium-out.log
