@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "96605f96-04e5-4e90-b763-ba2d2fea8d7f",
+		"_postman_id": "ff253bff-475a-4086-8f6c-8cc970bd9948",
 		"name": "Data Validation Test",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "1725700"
+		"_exporter_id": "3241567"
 	},
 	"item": [
 		{
@@ -69,7 +69,7 @@
 							"",
 							"pm.test(\"Response contains at least one user data\", function () {",
 							"    pm.expect(pm.response.text()).to.include(\"firstName\");",
-							"    pm.expect(pm.response.text()).to.include(\"lastNam\");",
+							"    pm.expect(pm.response.text()).to.include(\"lastName\");",
 							"    pm.expect(pm.response.text()).to.include(\"age\");",
 							"});"
 						],

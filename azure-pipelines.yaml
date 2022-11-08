@@ -219,7 +219,7 @@ stages:
                 #! /bin/bash
                 export PATH=$PATH:/usr/lib/chromium-browser/
                 unzip -o $(Build.BuildId)-uitests.zip
-                python3 add_remove_from_cart.py > $(Build.BuildId)-selenium-out.log
+                python3 login.py > $(Build.BuildId)-selenium-out.log
                 cat $(Build.BuildId)-selenium-out.log
                 sudo cp $(Build.BuildId)-selenium-out.log /var/log/selenium/$(Build.BuildId)-selenium-out.log
                 sudo cp $(Build.BuildId)-selenium-out.log /var/log
