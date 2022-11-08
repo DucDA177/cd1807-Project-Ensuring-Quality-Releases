@@ -32,6 +32,7 @@ def login (user, password):
     return driver
 
 def add_items_to_cart(driver, total_items):
+    print ('Adding items to cart...')
     n_items = 0
     for i in range(total_items):
         try:
@@ -55,11 +56,16 @@ def add_items_to_cart(driver, total_items):
         wait = WebDriverWait(driver, 10)
         new_cart_badge = wait.until(EC.text_to_be_present_in_element((By.CLASS_NAME, "shopping_cart_badge"), str(n_items)))
 
+        print('{}: {} added to cart.'.format(datetime.now(), product_name))
+        print('Number of items in the cart: {}.'.format(n_items))
+
         driver.find_element(By.ID, "back-to-products").click()
 
     print ('{} items added to cart.'.format(n_items))
 
 def remove_items_from_cart(driver, total_items):
+    print ('---------------------------')
+    print ('Removing items from cart...')
     cart_badge = driver.find_element(By.CLASS_NAME, "shopping_cart_badge").text
     n_items = int(cart_badge)
     for i in range(total_items):
@@ -80,6 +86,9 @@ def remove_items_from_cart(driver, total_items):
             wait.until(EC.text_to_be_present_in_element((By.CLASS_NAME, "shopping_cart_badge"), str(n_items)))
         else:
             wait.until(EC.invisibility_of_element_located((By.CLASS_NAME, "shopping_cart_badge")))
+
+        print('{}: {} removed from cart.'.format(datetime.now(), product_name))
+        print('Number of items in the cart: {}.'.format(n_items))
 
         driver.find_element(By.ID, "back-to-products").click()
 
