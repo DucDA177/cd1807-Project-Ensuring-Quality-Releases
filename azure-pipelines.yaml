@@ -218,6 +218,29 @@ stages:
               script: |
                 #! /bin/bash
                 export PATH=$PATH:/usr/lib/chromium-browser/
+
+                sudo apt-get upgrade -y
+                sudo apt-get install python3-pip -y
+                sudo apt-get install unzip -y
+                sudo apt-get install -y chromium-browser
+                pip3 install selenium
+
+                # download chrome driver v89
+                FILE=chromedriver_linux64.zip
+                if [ -f "$FILE" ]; then
+                  echo "$FILE exists."
+                else
+                  wget https://chromedriver.storage.googleapis.com/89.0.4389.23/chromedriver_linux64.zip
+                fi
+                
+                # install chrome driver
+                unzip chromedriver_linux64.zip
+                sudo mv chromedriver /usr/bin/chromedriver
+                sudo chown root:root /usr/bin/chromedriver
+                sudo chmod +x /usr/bin/chromedriver
+                chromium-browser -version
+                chromedriver --version
+
                 unzip -o $(Build.BuildId)-uitests.zip
                 sudo python3 login.py > $(Build.BuildId)-selenium-out.log
                 cat $(Build.BuildId)-selenium-out.log
