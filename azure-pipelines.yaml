@@ -218,16 +218,11 @@ stages:
               script: |
                 #! /bin/bash
                 export PATH=$PATH:/usr/lib/chromium-browser/
+                sudo apt-get install zip unzip
                 unzip -o $(Build.BuildId)-uitests.zip
-                sudo mkdir -p /var/log/selenium
-                sudo chmod 664 /var/log/selenium
-                  
-                sudo python3 -u login.py 2>&1 | sudo tee -a /var/log/selenium/selenium-test.log
-                # copy selenium log file to $(System.DefaultWorkingDirectory)/log/selenium/
-                cd $(System.DefaultWorkingDirectory)
-                mkdir -p log/selenium
-                pwd
-                sudo cp /var/log/selenium/selenium-test.log log/selenium/selenium-test.log
-                ls -la
+                sudo python3 login.py > $(Build.BuildId)-selenium-out.log
+                cat $(Build.BuildId)-selenium-out.log
+                sudo cp $(Build.BuildId)-selenium-out.log /var/log/selenium/$(Build.BuildId)-selenium-out.log
+                sudo cp $(Build.BuildId)-selenium-out.log /var/log
               workingDirectory: $(Pipeline.Workspace)/drop-uitests
                 
