@@ -218,9 +218,6 @@ stages:
               script: |
                 #! /bin/bash
                 export PATH=$PATH:/usr/lib/chromium-browser/
-                sudo apt-get install python3-pip
-                sudo pip3 install selenium
-                sudo apt-get install zip unzip
                 unzip -o $(Build.BuildId)-uitests.zip
                 sudo python3 login.py > $(Build.BuildId)-selenium-out.log
                 cat $(Build.BuildId)-selenium-out.log
