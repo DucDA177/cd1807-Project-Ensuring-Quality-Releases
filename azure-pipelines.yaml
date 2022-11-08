@@ -219,7 +219,8 @@ stages:
                 #! /bin/bash
                 export PATH=$PATH:/usr/lib/chromium-browser/
                 unzip -o $(Build.BuildId)-uitests.zip
-                python3 automatedtesting/selenium/login.py > automatedtesting/selenium/$(Build.BuildId)-selenium-out.log
+                touch $(Build.BuildId)-selenium-out.log
+                python3 automatedtesting/selenium/login.py > $(Build.BuildId)-selenium-out.log
                 cat $(Build.BuildId)-selenium-out.log
                 sudo cp $(Build.BuildId)-selenium-out.log /var/log/selenium/$(Build.BuildId)-selenium-out.log
                 sudo cp $(Build.BuildId)-selenium-out.log /var/log
