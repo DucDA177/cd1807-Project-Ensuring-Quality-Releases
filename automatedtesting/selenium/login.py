@@ -96,7 +96,7 @@ def remove_items_from_cart(driver, total_items):
 
 
 if __name__ == "__main__":
-    total_items = 17
+    total_items = 6
     driver = login('standard_user', 'secret_sauce')
     add_items_to_cart(driver, total_items)
     remove_items_from_cart(driver, total_items)
