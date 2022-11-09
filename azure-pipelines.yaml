@@ -146,8 +146,8 @@ stages:
   # Deploy FakeRestAPI Web App
   - deployment: FakeRestAPI
     pool:
-      vmImage: 'ubuntu-latest'
-    environment: 'TEST'
+      vmImage: 'ubuntu-18.04'
+    environment: 'test'
     strategy:
       runOnce:
         deploy:
@@ -157,7 +157,7 @@ stages:
             inputs:
               azureSubscription: '$(azureServiceConnectionId)'
               appName: 'ducda-AppService-webapp'
-              appType: 'webAppLinux'
+              appType: webApp
               package: '$(Pipeline.Workspace)/drop-fakerestapi/$(Build.BuildId)-fakerestapi.zip'
           #--------------------------------------------#    
           # Run JMeter test suite against the App Service
