@@ -6,7 +6,7 @@ tenant_id = "7ed19845-af0a-4369-bd19-d67db8f50d3c"
 
 # Resource Group/Location
 location = "East US"
-resource_group_name = "Azuredevops"
+resource_group_name = "ducda-udacity-azdevops-p3"
 application_type = "ducda"
 
 # Network
