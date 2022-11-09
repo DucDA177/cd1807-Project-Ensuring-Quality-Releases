@@ -9,7 +9,7 @@ trigger:
 variables:
   python.version: '3.7.6'
   # ToDo: Replace the service connection name as used in the DevOps project settings
-  azureServiceConnectionId: '5085800b-28a7-428e-b0d3-7f2a48886f15'
+  azureServiceConnectionId: '1dee229c-cc87-4b48-87b9-8433c5716e06'
   # Project root folder. Point to the folder containing manage.py file.
   projectRoot: $(System.DefaultWorkingDirectory)
   # Environment name
@@ -41,7 +41,7 @@ stages:
         workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
         backendServiceArm: '$(azureServiceConnectionId)'
         backendAzureRmResourceGroupName: 'ducda-udacity-azdevops-p3'
-        backendAzureRmStorageAccountName: 'tfstate2919724323'
+        backendAzureRmStorageAccountName: 'tfstate2649518952'
         backendAzureRmContainerName: 'tfstate'
         backendAzureRmKey: 'test.terraform.tfstate'
 
