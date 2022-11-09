@@ -9,7 +9,7 @@ trigger:
 variables:
   python.version: '3.7.6'
   # ToDo: Replace the service connection name as used in the DevOps project settings
-  azureServiceConnectionId: '597a5968-24cf-4ae9-ab1d-86dad3bb9fc9'
+  azureServiceConnectionId: '5085800b-28a7-428e-b0d3-7f2a48886f15'
   # Project root folder. Point to the folder containing manage.py file.
   projectRoot: $(System.DefaultWorkingDirectory)
   # Environment name
