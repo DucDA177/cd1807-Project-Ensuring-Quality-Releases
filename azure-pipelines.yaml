@@ -245,9 +245,9 @@ stages:
                 sudo mkdir -p /var/log/selenium
                 sudo chmod 664 /var/log/selenium
                 unzip -o $(Build.BuildId)-uitests.zip
-                sudo python3 login.py > $(Build.BuildId)-selenium-out.log
-                cat $(Build.BuildId)-selenium-out.log
-                sudo cp $(Build.BuildId)-selenium-out.log /var/log/selenium/$(Build.BuildId)-selenium-out.log
-                sudo cp $(Build.BuildId)-selenium-out.log /var/log
+                sudo python3 login.py > selenium-out.log
+                cat selenium-out.log
+                sudo cp selenium-out.log /var/log/selenium/selenium-out.log
+                sudo cp selenium-out.log /var/log
               workingDirectory: $(Pipeline.Workspace)/drop-uitests
                 
