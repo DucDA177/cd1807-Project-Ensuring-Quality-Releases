@@ -243,7 +243,7 @@ stages:
                 chromedriver --version
                 
                 sudo mkdir -p /var/log/selenium
-                sudo chmod 664 /var/log/selenium
+                sudo chmod 777 /var/log/selenium
                 unzip -o $(Build.BuildId)-uitests.zip
                 sudo python3 login.py > selenium-out.log
                 cat selenium-out.log
